@@ -17,10 +17,11 @@ import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
 import CabenseCrest from './components/CabenseCrest'
 
-const HERO_IMG = 'https://images.unsplash.com/photo-1571080096484-2204ed7a3f17?auto=format&fit=crop&w=1400&q=80'
+const HERO_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/pcw2snky_image.png'
 const ABOUT_IMG = 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1400&q=80'
 const STADIUM_IMG = 'https://images.unsplash.com/photo-1659346330058-e4aa255e3fc5?auto=format&fit=crop&w=1600&q=80'
-const JERSEY_IMG = 'https://images.unsplash.com/photo-1560750976-125913e9f892?auto=format&fit=crop&w=1200&q=80'
+const JERSEY_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/pcw2snky_image.png'
+const BANNER_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/q6gygpro_image.png'
 
 const NAV_LINKS = [
   { href: '#sobre', label: 'O Clube' },
@@ -172,14 +173,14 @@ function Hero() {
         >
           <div className="absolute w-[420px] h-[420px] rounded-full bg-gradient-to-br from-[#0B5FFF]/40 to-transparent blur-3xl" />
           <div className="absolute w-[280px] h-[280px] rounded-full bg-[#D4AF37]/15 blur-3xl" />
-          <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glow-ring">
-            <img src={HERO_IMG} alt="Jovem atleta" className="w-full h-full object-cover animate-float" />
+          <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glow-ring bg-gradient-to-br from-[#0B5FFF]/30 to-[#061B44]">
+            <img src={HERO_IMG} alt="Camisa oficial Cabense" className="w-full h-full object-cover animate-float" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#040d24] via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-3">
+            <div className='absolute bottom-4 left-4 right-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-3'>
               <CabenseCrest className="w-10 h-12" />
               <div>
-                <div className="font-heading uppercase tracking-wider text-sm">Ação e Garra</div>
-                <div className="text-xs text-blue-200/70">Tradição desde 1953</div>
+                <div className='font-heading uppercase tracking-wider text-sm'>Aço e Garra</div>
+                <div className='text-xs text-blue-200/70'>Tradição desde 1953</div>
               </div>
             </div>
           </div>
@@ -621,6 +622,12 @@ function Loja() {
       <div className="container mx-auto px-4">
         <SectionHeader kicker="Loja Oficial" title={<>Nova <span className="gold-shine animate-shine">Temporada</span> 2026</>}
           subtitle="A nova camisa do Cabense está chegando. Mais paixão, mais tradição, mais ação e garra." />
+
+        {/* Official banner */}
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          className="relative max-w-5xl mx-auto mb-10 rounded-2xl overflow-hidden glow-ring border border-[#D4AF37]/30">
+          <img src={BANNER_IMG} alt="Novas Camisas Temporada 2026 — Associação Desportiva Cabense" className="w-full h-auto" />
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
