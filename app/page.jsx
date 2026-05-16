@@ -46,7 +46,7 @@ function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2 backdrop-blur-xl bg-[#040d24]/85 border-b border-blue-500/15' : 'py-4 bg-transparent'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 group">
-          <CabenseCrest className="w-10 h-12 transition-transform group-hover:scale-110" />
+          <CabenseCrest className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
           <div className="hidden sm:block leading-tight">
             <div className="font-display text-xl tracking-wider">CABENSE</div>
             <div className="text-[10px] text-blue-300/80 tracking-[0.25em] uppercase">Assoc. Desportiva</div>
@@ -97,7 +97,7 @@ function Hero() {
     <section ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden bg-hero-glow noise pt-24 pb-16 lg:pt-32">
       {/* Background crest glow */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none flex items-center justify-center">
-        <CabenseCrest className="w-[120vw] max-w-[1100px] opacity-[0.06]" />
+        <CabenseCrest className="w-[95vw] max-w-[920px] opacity-[0.08]" />
       </motion.div>
 
       {/* Particles */}
@@ -177,7 +177,7 @@ function Hero() {
             <img src={HERO_IMG} alt="Camisa oficial Cabense" className="w-full h-full object-cover animate-float" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#040d24] via-transparent to-transparent" />
             <div className='absolute bottom-4 left-4 right-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-3'>
-              <CabenseCrest className="w-10 h-12" />
+              <CabenseCrest className="w-11 h-11 shrink-0" />
               <div>
                 <div className='font-heading uppercase tracking-wider text-sm'>Aço e Garra</div>
                 <div className='text-xs text-blue-200/70'>Tradição desde 1953</div>
@@ -672,7 +672,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <CabenseCrest className="w-14 h-16" />
+              <CabenseCrest className="w-14 h-14 shrink-0" />
               <div>
                 <div className="font-display text-2xl tracking-wide">ASSOC. DESPORTIVA CABENSE</div>
                 <div className="text-xs text-[#f7d871] tracking-[0.2em] uppercase">Tradição • Paixão • Futuro</div>
