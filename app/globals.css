@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 70% 8%;
+    --foreground: 0 0% 100%;
+    --card: 222 60% 11%;
+    --card-foreground: 0 0% 100%;
+    --popover: 222 60% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 222 100% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 50% 18%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 222 30% 18%;
+    --muted-foreground: 215 20% 75%;
+    --accent: 45 65% 52%;
+    --accent-foreground: 222 70% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 30% 22%;
+    --input: 222 40% 16%;
+    --ring: 222 100% 52%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-bebas), 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+  .font-heading { font-family: var(--font-oswald), 'Oswald', sans-serif; }
+  .text-stroke-gold {
+    -webkit-text-stroke: 1px #D4AF37;
+    color: transparent;
+  }
+  .bg-pitch-gradient {
+    background:
+      radial-gradient(ellipse at top, rgba(11,95,255,0.25), transparent 60%),
+      radial-gradient(ellipse at bottom, rgba(6,27,68,1) 30%, #02070f 80%),
+      linear-gradient(180deg, #061B44 0%, #02070f 100%);
+  }
+  .bg-hero-glow {
+    background:
+      radial-gradient(circle at 30% 40%, rgba(11,95,255,0.45), transparent 55%),
+      radial-gradient(circle at 80% 20%, rgba(212,175,55,0.18), transparent 50%),
+      linear-gradient(180deg, #061B44 0%, #02070f 100%);
+  }
+  .glass {
+    background: linear-gradient(180deg, rgba(11,95,255,0.10), rgba(6,27,68,0.30));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(11,95,255,0.25);
+  }
+  .glass-strong {
+    background: linear-gradient(180deg, rgba(11,95,255,0.18), rgba(6,27,68,0.55));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(11,95,255,0.35);
+  }
+  .gold-shine {
+    background: linear-gradient(90deg, #b8901f, #f7d871, #b8901f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .stripe-pattern {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(11,95,255,0.06) 0,
+      rgba(11,95,255,0.06) 2px,
+      transparent 2px,
+      transparent 14px
+    );
+  }
+  .glow-ring {
+    box-shadow: 0 0 0 1px rgba(11,95,255,0.4), 0 0 40px rgba(11,95,255,0.35), 0 0 90px rgba(11,95,255,0.15);
+  }
+  .glow-gold {
+    box-shadow: 0 0 0 1px rgba(212,175,55,0.4), 0 0 35px rgba(212,175,55,0.25);
+  }
+  .noise::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.04; pointer-events: none; mix-blend-mode: overlay;
+  }
+}
+
+@keyframes float-slow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+.animate-float { animation: float-slow 6s ease-in-out infinite; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px rgba(11,95,255,0.35); }
+  50% { box-shadow: 0 0 70px rgba(11,95,255,0.6); }
+}
+.animate-pulse-glow { animation: pulse-glow 3.5s ease-in-out infinite; }
+
+@keyframes shine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shine {
+  background-size: 200% 100%;
+  animation: shine 4s linear infinite;
+}
+
+.particle {
+  position: absolute; border-radius: 9999px;
+  background: radial-gradient(circle, rgba(11,95,255,0.9), rgba(11,95,255,0) 70%);
+  filter: blur(1px);
+  animation: float-slow 8s ease-in-out infinite;
+}
