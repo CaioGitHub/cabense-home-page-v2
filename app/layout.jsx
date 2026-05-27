@@ -10,6 +10,9 @@ export const metadata = {
   title: 'Associação Desportiva Cabense — Nova Camisa Oficial 2026',
   description: 'Tradição, paixão e futuro. Adquira a nova camisa oficial da Associação Desportiva Cabense para a temporada 2026.',
   keywords: 'Cabense, ADC, Camisa Oficial, temporada 2026, futebol, Cabo de Santo Agostinho, Pernambuco',
+  icons: {
+    icon: '/cabense-escudo.png',
+  },
   openGraph: {
     title: 'Nova Camisa Oficial 2026 — Associação Desportiva Cabense',
     description: 'Vista a paixão Cabense. Garanta sua nova camisa oficial para a temporada 2026.',

@@ -1,4 +1,4 @@
-import cabenseEscudo from '@/src/assets/cabense-escudo.png'
+import cabenseEscudo from '@/public/cabense-escudo.png'
 
 export default function CabenseCrest({ className = '', glow = true }) {
   return (
