@@ -21,7 +21,7 @@ const HERO_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/
 const ABOUT_IMG = 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1400&q=80'
 const STADIUM_IMG = 'https://images.unsplash.com/photo-1659346330058-e4aa255e3fc5?auto=format&fit=crop&w=1600&q=80'
 const JERSEY_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/pcw2snky_image.png'
-const BANNER_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/q6gygpro_image.png'
+const BANNER_IMG = './camisa_propaganda.png'
 
 const NAV_LINKS = [
   { href: '#sobre', label: 'O Clube' },
@@ -58,11 +58,14 @@ function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#loja" className="hidden sm:inline-flex">
+          <button onClick={() => {
+            const section = document.getElementById('produtos');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }} className="hidden sm:inline-flex">
             <Button className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 shadow-lg shadow-blue-600/30 font-heading uppercase tracking-wider text-xs">
               Compre Agora <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
             </Button>
-          </a>
+          </button>
           <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-white/90">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -138,11 +141,14 @@ function Hero() {
             Garanta agora a nova camisa oficial da temporada 2026 e faça parte desta história.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#loja">
+            <button onClick={() => {
+              const section = document.getElementById('produtos');
+              if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}>
               <Button size="lg" className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider px-7 h-12 animate-pulse-glow">
                 Comprar Agora <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-            </a>
+            </button>
             <a href="#loja">
               <Button size="lg" variant="outline" className="bg-white/5 hover:bg-white/10 text-white border-white/25 font-heading uppercase tracking-wider px-7 h-12">
                 Ver Detalhes
@@ -153,11 +159,11 @@ function Hero() {
             {[
               { k: 'TEMPORADA 2026', v: 'Lançamento' },
               { k: 'OFICIAL', v: 'Modelo' },
-              { k: 'R$ 149,90', v: 'Preço' },
+              { k: 'R$ 100,00', v: 'Preço' },
             ].map((s, i) => (
-              <div key={i} className="glass rounded-xl px-3 py-2.5 text-center">
-                <div className="font-display text-2xl text-white tracking-wide">{s.k}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70">{s.v}</div>
+              <div key={i} className="glass rounded-xl px-3 py-2.5 flex flex-col items-center justify-center">
+                <div className="font-display text-2xl text-white tracking-wide text-center">{s.k}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70 text-center">{s.v}</div>
               </div>
             ))}
           </div>
@@ -212,7 +218,7 @@ function About() {
     <section id="sobre" className="relative py-24 lg:py-32 stripe-pattern">
       <div className="container mx-auto px-4">
         <SectionHeader kicker="Sobre o Clube" title={<>Tradição, <span className="gold-shine animate-shine">Paixão</span> e Futuro</>}
-          subtitle="A Associação Desportiva Cabense segue investindo nas categorias de base para revelar novos talentos do futebol brasileiro. A seletiva Sub-20 2025 representa uma nova oportunidade para jovens atletas mostrarem seu potencial." />
+          subtitle="A Associação Desportiva Cabense representa tradição, orgulho e paixão pelo futebol. Vista as cores do clube e faça parte dessa história adquirindo a nova camisa oficial da temporada 2026." />
 
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center mb-16">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -261,7 +267,7 @@ function Loja() {
           <img src={BANNER_IMG} alt="Novas Camisas Temporada 2026 — Associação Desportiva Cabense" className="w-full h-auto" />
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div id="produtos" className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
             { tag: 'HOME', name: 'Camisa Oficial I', accent: 'from-[#0B5FFF] to-[#0a3da8]' },
             { tag: 'AWAY', name: 'Camisa Oficial II', accent: 'from-white/20 to-white/5' },
@@ -326,7 +332,7 @@ function Footer() {
             <div className="font-heading uppercase tracking-wider text-sm text-white mb-4">Contato</div>
             <ul className="space-y-3 text-sm text-blue-100/75">
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#f7d871]" /> contato@cabense.com.br</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#f7d871]" /> (81) 9 0000-0000</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#f7d871]" /> (81) 98513-3528</li>
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 text-[#f7d871] mt-0.5" /> Estádio Gileno de Carli<br/>Cabo de Santo Agostinho — PE</li>
             </ul>
           </div>
