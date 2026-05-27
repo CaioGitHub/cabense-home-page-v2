@@ -7,12 +7,12 @@ const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
 
 export const metadata = {
-  title: 'Associação Desportiva Cabense — Seletiva Sub-20 2025',
-  description: 'Tradição, paixão e futuro. Inscreva-se na Seletiva Sub-20 2025 da Associação Desportiva Cabense e mostre seu talento.',
-  keywords: 'Cabense, ADC, Seletiva Sub-20, futebol, Cabo de Santo Agostinho, Pernambuco, futebol de base',
+  title: 'Associação Desportiva Cabense — Nova Camisa Oficial 2026',
+  description: 'Tradição, paixão e futuro. Adquira a nova camisa oficial da Associação Desportiva Cabense para a temporada 2026.',
+  keywords: 'Cabense, ADC, Camisa Oficial, temporada 2026, futebol, Cabo de Santo Agostinho, Pernambuco',
   openGraph: {
-    title: 'Seletiva Sub-20 2025 — Associação Desportiva Cabense',
-    description: 'Chegou a sua hora de fazer parte do Cabense. Inscreva-se agora.',
+    title: 'Nova Camisa Oficial 2026 — Associação Desportiva Cabense',
+    description: 'Vista a paixão Cabense. Garanta sua nova camisa oficial para a temporada 2026.',
     type: 'website',
     locale: 'pt_BR',
   },
