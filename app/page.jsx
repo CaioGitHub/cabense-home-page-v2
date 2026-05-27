@@ -10,8 +10,6 @@ import {
   ChevronRight, Star, Flame, Lock
 } from 'lucide-react'
 
-import { Label } from './components/ui/label'
-import { Input } from './components/ui/input'
 import { Card } from './components/ui/card'
 import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
@@ -27,8 +25,6 @@ const NAV_LINKS = [
   { href: '#sobre', label: 'O Clube' },
   { href: '#loja', label: 'Loja' },
 ]
-
-const PIX_KEY = '01.615.265/0001-67'
 
 /* ---------- Navbar ---------- */
 function Navbar() {
@@ -58,14 +54,12 @@ function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <button onClick={() => {
+          <Button onClick={() => {
             const section = document.getElementById('produtos');
             if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }} className="hidden sm:inline-flex">
-            <Button className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 shadow-lg shadow-blue-600/30 font-heading uppercase tracking-wider text-xs">
-              Compre Agora <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-            </Button>
-          </button>
+          }} className="hidden sm:inline-flex bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 shadow-lg shadow-blue-600/30 font-heading uppercase tracking-wider text-xs">
+            Compre Agora <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+          </Button>
           <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-white/90">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -141,19 +135,15 @@ function Hero() {
             Garanta agora a nova camisa oficial da temporada 2026 e faça parte desta história.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <button onClick={() => {
+            <Button size="lg" onClick={() => {
               const section = document.getElementById('produtos');
               if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}>
-              <Button size="lg" className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider px-7 h-12 animate-pulse-glow">
-                Comprar Agora <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </button>
-            <a href="#loja">
-              <Button size="lg" variant="outline" className="bg-white/5 hover:bg-white/10 text-white border-white/25 font-heading uppercase tracking-wider px-7 h-12">
-                Ver Detalhes
-              </Button>
-            </a>
+            }} className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider px-7 h-12 animate-pulse-glow">
+              Comprar Agora <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+            <Button size="lg" onClick={() => document.getElementById('loja')?.scrollIntoView({ behavior: 'smooth', block: 'start' })} variant="outline" className="bg-white/5 hover:bg-white/10 text-white border-white/25 font-heading uppercase tracking-wider px-7 h-12">
+              Ver Detalhes
+            </Button>
           </div>
           <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
             {[
