@@ -7,7 +7,7 @@ import {
   Download, ShoppingBag, Instagram, Facebook, Youtube, Mail, Phone,
   ShieldCheck, GraduationCap, Briefcase, Sparkles, ArrowRight, Menu, X,
   FileText, Shirt, Droplet, Droplets, ShoppingBasket, IdCard, UserCheck,
-  ChevronRight, Star, Flame
+  ChevronRight, Star, Flame, Lock
 } from 'lucide-react'
 
 import { Label } from './components/ui/label'
@@ -275,8 +275,13 @@ function Loja() {
           ].map((c, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <Card className="glass border-blue-500/25 hover:border-[#D4AF37]/50 transition-all overflow-hidden bg-transparent group">
-                <div className={`relative aspect-[4/5] bg-gradient-to-br ${c.accent}`}>
-                  <img src={JERSEY_IMG} alt={c.name} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 1 ? 'opacity-40 grayscale' : i === 2 ? 'opacity-60 sepia' : ''}`} />
+                <div className={`relative aspect-[4/5] bg-gradient-to-br ${c.accent} overflow-hidden`}>
+                  <img src={JERSEY_IMG} alt={c.name} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 1 ? 'opacity-40 grayscale blur-md' : i === 2 ? 'opacity-60 sepia blur-md' : ''}`} />
+                  {i > 0 && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                      <Lock className="w-14 h-14 text-white/80" />
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040d24] via-transparent to-transparent" />
                   <Badge className="absolute top-3 left-3 bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#f7d871] font-heading tracking-wider">
                     {c.tag}
@@ -287,9 +292,18 @@ function Loja() {
                   </div>
                 </div>
                 <div className="p-4 flex items-center justify-between">
-                  <span className="text-xs text-blue-200/70 uppercase tracking-wider">Lançamento</span>
-                  <Button size="sm" variant="outline" disabled className="bg-white/5 border-white/15 text-white/70 font-heading uppercase tracking-wider text-[11px]">
-                    <ShoppingBag className="w-3.5 h-3.5 mr-1.5" /> Em breve
+                  <span className={`text-xs uppercase tracking-wider ${i === 0 ? 'text-[#D4AF37]' : 'text-blue-200/70'}`}>
+                    {i === 0 ? 'Agora Disponível' : 'Lançamento'}
+                  </span>
+                  <Button 
+                    size="sm" 
+                    disabled={i > 0}
+                    className={i === 0 
+                      ? "bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider text-[11px]" 
+                      : "bg-white/5 border-white/15 text-white/70 font-heading uppercase tracking-wider text-[11px]"
+                    }
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5 mr-1.5" /> {i === 0 ? 'Comprar' : 'Em breve'}
                   </Button>
                 </div>
               </Card>
