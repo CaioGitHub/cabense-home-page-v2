@@ -7,7 +7,7 @@ import {
   Download, ShoppingBag, Instagram, Facebook, Youtube, Mail, Phone,
   ShieldCheck, GraduationCap, Briefcase, Sparkles, ArrowRight, Menu, X,
   FileText, Shirt, Droplet, Droplets, ShoppingBasket, IdCard, UserCheck,
-  ChevronRight, Star, Flame
+  ChevronRight, Star, Flame, Lock
 } from 'lucide-react'
 
 import { Label } from './components/ui/label'
@@ -17,16 +17,14 @@ import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
 import CabenseCrest from './components/CabenseCrest'
 
-const HERO_IMG = 'https://images.unsplash.com/photo-1571080096484-2204ed7a3f17?auto=format&fit=crop&w=1400&q=80'
+const HERO_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/pcw2snky_image.png'
 const ABOUT_IMG = 'https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1400&q=80'
 const STADIUM_IMG = 'https://images.unsplash.com/photo-1659346330058-e4aa255e3fc5?auto=format&fit=crop&w=1600&q=80'
-const JERSEY_IMG = 'https://images.unsplash.com/photo-1560750976-125913e9f892?auto=format&fit=crop&w=1200&q=80'
+const JERSEY_IMG = 'https://customer-assets.emergentagent.com/job_inscricao-sub20/artifacts/pcw2snky_image.png'
+const BANNER_IMG = './camisa_propaganda.png'
 
 const NAV_LINKS = [
   { href: '#sobre', label: 'O Clube' },
-  { href: '#seletiva', label: 'Seletiva' },
-  { href: '#pre-selecionados', label: 'Pré-selecionados' },
-  { href: '#inscricao', label: 'Inscrição' },
   { href: '#loja', label: 'Loja' },
 ]
 
@@ -45,7 +43,7 @@ function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2 backdrop-blur-xl bg-[#040d24]/85 border-b border-blue-500/15' : 'py-4 bg-transparent'}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3 group">
-          <CabenseCrest className="w-10 h-12 transition-transform group-hover:scale-110" />
+          <CabenseCrest className="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
           <div className="hidden sm:block leading-tight">
             <div className="font-display text-xl tracking-wider">CABENSE</div>
             <div className="text-[10px] text-blue-300/80 tracking-[0.25em] uppercase">Assoc. Desportiva</div>
@@ -60,11 +58,14 @@ function Navbar() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a href="#inscricao" className="hidden sm:inline-flex">
+          <button onClick={() => {
+            const section = document.getElementById('produtos');
+            if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }} className="hidden sm:inline-flex">
             <Button className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 shadow-lg shadow-blue-600/30 font-heading uppercase tracking-wider text-xs">
-              Inscreva-se <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+              Compre Agora <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
             </Button>
-          </a>
+          </button>
           <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-white/90">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -96,7 +97,7 @@ function Hero() {
     <section ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden bg-hero-glow noise pt-24 pb-16 lg:pt-32">
       {/* Background crest glow */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 pointer-events-none flex items-center justify-center">
-        <CabenseCrest className="w-[120vw] max-w-[1100px] opacity-[0.06]" />
+        <CabenseCrest className="w-[95vw] max-w-[920px] opacity-[0.08]" />
       </motion.div>
 
       {/* Particles */}
@@ -124,42 +125,45 @@ function Hero() {
       <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
           <Badge className="bg-[#D4AF37]/15 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#f7d871] mb-6 font-heading uppercase tracking-[0.2em] text-[11px] px-3 py-1">
-            <Flame className="w-3 h-3 mr-1.5" />Temporada 2025 / 2026
+            <Flame className="w-3 h-3 mr-1.5" />Temporada 2026
           </Badge>
           <h1 className="font-display text-[clamp(3rem,9vw,7.5rem)] leading-[0.92] tracking-tight">
-            <span className="block text-white">SELETIVA</span>
+            <span className="block text-white">VISTA A</span>
             <span className="block">
-              <span className="gold-shine animate-shine">SUB-20</span>
-              <span className="text-white ml-3">2025</span>
+              <span className="gold-shine animate-shine">PAIXÃO</span>
+              <span className="text-white ml-3">CABENSE</span>
             </span>
           </h1>
           <p className="mt-6 max-w-xl text-lg sm:text-xl text-blue-100/90 font-light">
-            Chegou a sua hora de fazer parte da <span className="text-white font-medium">Associação Desportiva Cabense</span>.
+            Carregue as cores da <span className="text-white font-medium">Associação Desportiva Cabense</span> dentro e fora dos gramados.
           </p>
           <p className="mt-3 max-w-xl text-blue-200/70">
-            Mostre seu talento e tenha a chance de jogar oficialmente pelo Cabense.
+            Garanta agora a nova camisa oficial da temporada 2026 e faça parte desta história.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#inscricao">
+            <button onClick={() => {
+              const section = document.getElementById('produtos');
+              if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }}>
               <Button size="lg" className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider px-7 h-12 animate-pulse-glow">
-                Inscreva-se Agora <ArrowRight className="ml-2 w-4 h-4" />
+                Comprar Agora <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-            </a>
-            <a href="#seletiva">
+            </button>
+            <a href="#loja">
               <Button size="lg" variant="outline" className="bg-white/5 hover:bg-white/10 text-white border-white/25 font-heading uppercase tracking-wider px-7 h-12">
-                Ver Informações
+                Ver Detalhes
               </Button>
             </a>
           </div>
           <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
             {[
-              { k: '25/05', v: 'Data' },
-              { k: '08H', v: 'Início' },
-              { k: 'R$ 20', v: 'Inscrição' },
+              { k: 'TEMPORADA 2026', v: 'Lançamento' },
+              { k: 'OFICIAL', v: 'Modelo' },
+              { k: 'R$ 100,00', v: 'Preço' },
             ].map((s, i) => (
-              <div key={i} className="glass rounded-xl px-3 py-2.5 text-center">
-                <div className="font-display text-2xl text-white tracking-wide">{s.k}</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70">{s.v}</div>
+              <div key={i} className="glass rounded-xl px-3 py-2.5 flex flex-col items-center justify-center">
+                <div className="font-display text-2xl text-white tracking-wide text-center">{s.k}</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-blue-200/70 text-center">{s.v}</div>
               </div>
             ))}
           </div>
@@ -172,14 +176,14 @@ function Hero() {
         >
           <div className="absolute w-[420px] h-[420px] rounded-full bg-gradient-to-br from-[#0B5FFF]/40 to-transparent blur-3xl" />
           <div className="absolute w-[280px] h-[280px] rounded-full bg-[#D4AF37]/15 blur-3xl" />
-          <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glow-ring">
-            <img src={HERO_IMG} alt="Jovem atleta" className="w-full h-full object-cover animate-float" />
+          <div className="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden glow-ring bg-gradient-to-br from-[#0B5FFF]/30 to-[#061B44]">
+            <img src={HERO_IMG} alt="Camisa oficial Cabense" className="w-full h-full object-cover animate-float" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#040d24] via-transparent to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-3">
-              <CabenseCrest className="w-10 h-12" />
+            <div className='absolute bottom-4 left-4 right-4 glass-strong rounded-xl px-4 py-3 flex items-center gap-3'>
+              <CabenseCrest className="w-11 h-11 shrink-0" />
               <div>
-                <div className="font-heading uppercase tracking-wider text-sm">Ação e Garra</div>
-                <div className="text-xs text-blue-200/70">Tradição desde 1953</div>
+                <div className='font-heading uppercase tracking-wider text-sm'>Tradição e Orgulho</div>
+                <div className='text-xs text-blue-200/70'>A nova pele da Cabense para 2026</div>
               </div>
             </div>
           </div>
@@ -214,7 +218,7 @@ function About() {
     <section id="sobre" className="relative py-24 lg:py-32 stripe-pattern">
       <div className="container mx-auto px-4">
         <SectionHeader kicker="Sobre o Clube" title={<>Tradição, <span className="gold-shine animate-shine">Paixão</span> e Futuro</>}
-          subtitle="A Associação Desportiva Cabense segue investindo nas categorias de base para revelar novos talentos do futebol brasileiro. A seletiva Sub-20 2025 representa uma nova oportunidade para jovens atletas mostrarem seu potencial." />
+          subtitle="A Associação Desportiva Cabense representa tradição, orgulho e paixão pelo futebol. Vista as cores do clube e faça parte dessa história adquirindo a nova camisa oficial da temporada 2026." />
 
         <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 items-center mb-16">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -249,371 +253,6 @@ function About() {
   )
 }
 
-/* ---------- Seletiva info ---------- */
-function Seletiva() {
-  const cards = [
-    { icon: Calendar, label: 'Data', value: '25/05 às 08h', color: 'from-[#0B5FFF] to-[#1e88ff]' },
-    { icon: MapPin, label: 'Local', value: 'Estádio Gileno de Carli', color: 'from-[#0a3da8] to-[#0B5FFF]' },
-    { icon: Users, label: 'Público-alvo', value: 'Nascidos entre 2005 e 2009', color: 'from-[#0B5FFF] to-[#3478ff]' },
-    { icon: DollarSign, label: 'Inscrição', value: 'R$ 20,00', color: 'from-[#b8901f] to-[#f7d871]' },
-  ]
-  return (
-    <section id="seletiva" className="relative py-24 lg:py-32 bg-pitch-gradient noise">
-      <div className="container mx-auto px-4">
-        <SectionHeader kicker="A Seletiva" title={<>Informações <span className="gold-shine animate-shine">Oficiais</span></>} />
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map((c, i) => {
-            const Ic = c.icon
-            return (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                <Card className="glass border-blue-500/20 hover:border-[#D4AF37]/60 transition-all p-6 h-full bg-transparent group hover:-translate-y-1">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${c.color} flex items-center justify-center shadow-lg mb-5`}>
-                    <Ic className="w-5 h-5 text-white" />
-                  </div>
-                  <div className="text-[11px] uppercase tracking-[0.2em] text-blue-200/70">{c.label}</div>
-                  <div className="font-heading text-xl mt-1 text-white leading-tight">{c.value}</div>
-                </Card>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="mt-12 relative rounded-2xl overflow-hidden glow-ring">
-          <div className="absolute inset-0">
-            <img src={STADIUM_IMG} alt="" className="w-full h-full object-cover opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#040d24] via-[#061B44]/80 to-[#040d24]" />
-          </div>
-          <div className="relative px-6 py-12 sm:py-16 text-center">
-            <Sparkles className="w-7 h-7 mx-auto text-[#f7d871] mb-3" />
-            <div className="font-display text-3xl sm:text-5xl">A hora de mostrar seu talento <span className="gold-shine animate-shine">chegou</span>.</div>
-            <a href="#inscricao" className="inline-block mt-7">
-              <Button size="lg" className="bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] font-heading uppercase tracking-wider px-8 h-12">
-                Garantir minha vaga <ChevronRight className="ml-1 w-4 h-4" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Pre-selecionados ---------- */
-function PreSelecionados() {
-  const [q, setQ] = useState('')
-  const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const fetchList = async () => {
-      setLoading(true)
-      try {
-        const res = await fetch(`/api/pre-selecionados?q=${encodeURIComponent(q)}`)
-        const data = await res.json()
-        setItems(data.items || [])
-      } catch {
-        setItems([])
-      } finally { setLoading(false) }
-    }
-    const t = setTimeout(fetchList, 200)
-    return () => clearTimeout(t)
-  }, [q])
-
-  return (
-    <section id="pre-selecionados" className="relative py-24 lg:py-32">
-      <div className="container mx-auto px-4">
-        <SectionHeader kicker="Convocados" title={<>Lista de <span className="gold-shine animate-shine">Pré-Selecionados</span> — Sub 20 2025</>}
-          subtitle="Confira os atletas pré-selecionados para a próxima etapa da seletiva." />
-
-        <div className="max-w-xl mx-auto mb-8 relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-200/60" />
-          <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Buscar por nome, posição, cidade ou ano..."
-            className="pl-11 h-12 bg-white/5 border-blue-500/30 focus-visible:ring-[#0B5FFF] focus-visible:border-[#0B5FFF] text-white placeholder:text-blue-200/40" />
-        </div>
-
-        <div className="glass rounded-2xl overflow-hidden border border-blue-500/25">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-[#0B5FFF]/15 border-b border-blue-500/30">
-                <tr className="text-left">
-                  <th className="px-5 py-4 font-heading uppercase tracking-wider text-xs text-blue-100">#</th>
-                  <th className="px-5 py-4 font-heading uppercase tracking-wider text-xs text-blue-100">Atleta</th>
-                  <th className="px-5 py-4 font-heading uppercase tracking-wider text-xs text-blue-100">Posição</th>
-                  <th className="px-5 py-4 font-heading uppercase tracking-wider text-xs text-blue-100">Ano</th>
-                  <th className="px-5 py-4 font-heading uppercase tracking-wider text-xs text-blue-100 hidden md:table-cell">Cidade</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-blue-500/10">
-                {loading && (
-                  <tr><td colSpan={5} className="px-5 py-12 text-center text-blue-200/60">Carregando...</td></tr>
-                )}
-                {!loading && items.length === 0 && (
-                  <tr><td colSpan={5} className="px-5 py-12 text-center text-blue-200/60">Nenhum atleta encontrado.</td></tr>
-                )}
-                {!loading && items.map((p) => (
-                  <tr key={p.numero} className="hover:bg-[#0B5FFF]/10 transition-colors">
-                    <td className="px-5 py-4 font-display text-2xl text-[#f7d871]">{String(p.numero).padStart(2, '0')}</td>
-                    <td className="px-5 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0B5FFF] to-[#0a3da8] flex items-center justify-center text-xs font-bold">
-                          {p.nome.split(' ').slice(0,2).map(n => n[0]).join('')}
-                        </div>
-                        <div className="text-white font-medium">{p.nome}</div>
-                      </div>
-                    </td>
-                    <td className="px-5 py-4 text-blue-100/80">{p.posicao}</td>
-                    <td className="px-5 py-4 text-blue-100/80">{p.ano}</td>
-                    <td className="px-5 py-4 text-blue-100/60 hidden md:table-cell">{p.cidade}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <div className="px-5 py-3 text-xs text-blue-200/60 border-t border-blue-500/15 flex items-center justify-between">
-            <span>{items.length} atleta(s)</span>
-            <span className="hidden sm:inline">Lista atualizada • Sub-20 / 2025</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- O que levar ---------- */
-function OQueLevar() {
-  const items = [
-    { icon: IdCard, t: 'Documento de identificação' },
-    { icon: Shirt, t: 'Calção branco' },
-    { icon: Shirt, t: 'Meios e camisa azul' },
-    { icon: UserCheck, t: 'Responsável legal para menores' },
-    { icon: ShoppingBasket, t: '02 sacolas plásticas' },
-    { icon: Droplets, t: '01 toalha de rosto' },
-    { icon: Droplet, t: '01 squeeze ou garrafa de hidratação' },
-  ]
-  return (
-    <section className="relative py-24 lg:py-32 bg-pitch-gradient noise">
-      <div className="container mx-auto px-4">
-        <SectionHeader kicker="Checklist" title={<>O que <span className="gold-shine animate-shine">Levar</span></>}
-          subtitle="Itens obrigatórios para participar da seletiva. Esteja preparado." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          {items.map((it, i) => {
-            const Ic = it.icon
-            return (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="glass border border-blue-500/20 rounded-xl p-5 flex items-center gap-4 group hover:border-[#D4AF37]/50 transition-all">
-                <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-[#0B5FFF] to-[#0a3da8] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                  <Ic className="w-5 h-5 text-white" />
-                </div>
-                <div className="text-white/95 font-medium">{it.t}</div>
-                <Check className="ml-auto w-4 h-4 text-[#f7d871] opacity-0 group-hover:opacity-100 transition" />
-              </motion.div>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Inscricao ---------- */
-function FileDrop({ label, file, onFile, accept = '.pdf,.jpg,.jpeg,.png,.docx' }) {
-  const inputRef = useRef(null)
-  const [drag, setDrag] = useState(false)
-  return (
-    <div>
-      <Label className="text-blue-100/90">{label}</Label>
-      <div
-        onDragOver={(e) => { e.preventDefault(); setDrag(true) }}
-        onDragLeave={() => setDrag(false)}
-        onDrop={(e) => {
-          e.preventDefault(); setDrag(false)
-          const f = e.dataTransfer.files?.[0]
-          if (f) onFile(f)
-        }}
-        onClick={() => inputRef.current?.click()}
-        className={`mt-2 rounded-xl border-2 border-dashed transition-all cursor-pointer p-5 text-center
-          ${drag ? 'border-[#D4AF37] bg-[#D4AF37]/10' : 'border-blue-500/30 hover:border-[#0B5FFF] hover:bg-[#0B5FFF]/5'}`}>
-        <input ref={inputRef} type="file" accept={accept} className="hidden"
-          onChange={(e) => { const f = e.target.files?.[0]; if (f) onFile(f) }} />
-        {file ? (
-          <div className="flex items-center justify-center gap-2 text-sm text-white">
-            <FileText className="w-4 h-4 text-[#f7d871]" />
-            <span className="truncate max-w-[220px]">{file.name}</span>
-            <span className="text-blue-200/60 text-xs">({(file.size/1024).toFixed(0)} KB)</span>
-          </div>
-        ) : (
-          <>
-            <Upload className="w-6 h-6 mx-auto text-blue-200/70 mb-2" />
-            <div className="text-sm text-blue-100/80">Arraste o arquivo ou <span className="text-[#f7d871] underline underline-offset-4">selecione</span></div>
-            <div className="text-[11px] text-blue-200/50 mt-1">PDF, JPG, PNG ou DOCX</div>
-          </>
-        )}
-      </div>
-    </div>
-  )
-}
-
-function Inscricao() {
-  const [form, setForm] = useState({ nome: '', email: '', telefone: '', nascimento: '', posicao: '' })
-  const [comprovante, setComprovante] = useState(null)
-  const [formulario, setFormulario] = useState(null)
-  const [submitting, setSubmitting] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const [success, setSuccess] = useState(null)
-
-  const copyPix = async () => {
-    try {
-      await navigator.clipboard.writeText(PIX_KEY)
-      setCopied(true)
-      toast.success('Chave Pix copiada!')
-      setTimeout(() => setCopied(false), 2000)
-    } catch { toast.error('Não foi possível copiar') }
-  }
-
-  const update = (k) => (e) => setForm({ ...form, [k]: e.target.value })
-
-  const submit = async (e) => {
-    e.preventDefault()
-    if (!form.nome || !form.email || !form.telefone || !form.nascimento) {
-      toast.error('Preencha todos os campos obrigatórios.')
-      return
-    }
-    setSubmitting(true)
-    try {
-      const payload = {
-        ...form,
-        comprovante: comprovante ? { name: comprovante.name, size: comprovante.size, type: comprovante.type } : null,
-        formulario: formulario ? { name: formulario.name, size: formulario.size, type: formulario.type } : null,
-      }
-      const res = await fetch('/api/inscricoes', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
-      })
-      const data = await res.json()
-      if (!res.ok) throw new Error(data.error || 'Erro ao enviar')
-      setSuccess(data.inscricao)
-      toast.success('Inscrição enviada com sucesso!')
-      setForm({ nome: '', email: '', telefone: '', nascimento: '', posicao: '' })
-      setComprovante(null); setFormulario(null)
-    } catch (err) {
-      toast.error(err.message)
-    } finally { setSubmitting(false) }
-  }
-
-  return (
-    <section id="inscricao" className="relative py-24 lg:py-32">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-[#0B5FFF]/15 blur-3xl" />
-      </div>
-      <div className="container mx-auto px-4">
-        <SectionHeader kicker="Sua chance" title={<><span className="gold-shine animate-shine">Inscreva-se</span> Agora</>}
-          subtitle="Preencha o formulário, anexe o comprovante Pix e o formulário oficial assinado." />
-
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 max-w-6xl mx-auto">
-          {/* Form */}
-          <Card className="glass-strong border-blue-500/30 p-6 sm:p-8 bg-transparent">
-            <form onSubmit={submit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <Label>Nome completo *</Label>
-                  <Input value={form.nome} onChange={update('nome')} className="mt-1.5 h-11 bg-white/5 border-blue-500/30 text-white" placeholder="Ex: João da Silva" />
-                </div>
-                <div>
-                  <Label>Email *</Label>
-                  <Input type="email" value={form.email} onChange={update('email')} className="mt-1.5 h-11 bg-white/5 border-blue-500/30 text-white" placeholder="seu@email.com" />
-                </div>
-                <div>
-                  <Label>Telefone *</Label>
-                  <Input value={form.telefone} onChange={update('telefone')} className="mt-1.5 h-11 bg-white/5 border-blue-500/30 text-white" placeholder="(81) 99999-9999" />
-                </div>
-                <div>
-                  <Label>Data de nascimento *</Label>
-                  <Input type="date" value={form.nascimento} onChange={update('nascimento')} className="mt-1.5 h-11 bg-white/5 border-blue-500/30 text-white" />
-                </div>
-                <div className="sm:col-span-2">
-                  <Label>Posição principal</Label>
-                  <Input value={form.posicao} onChange={update('posicao')} className="mt-1.5 h-11 bg-white/5 border-blue-500/30 text-white" placeholder="Ex: Volante" />
-                </div>
-              </div>
-
-              <FileDrop label="Comprovante Pix *" file={comprovante} onFile={setComprovante} />
-              <FileDrop label="Formulário preenchido *" file={formulario} onFile={setFormulario} />
-
-              <Button type="submit" disabled={submitting}
-                className="w-full h-12 bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] font-heading uppercase tracking-wider text-white animate-pulse-glow disabled:opacity-60">
-                {submitting ? 'Enviando...' : 'Enviar Inscrição'}
-                {!submitting && <ArrowRight className="ml-2 w-4 h-4" />}
-              </Button>
-
-              <AnimatePresence>
-                {success && (
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-                    className="rounded-xl border border-[#D4AF37]/40 bg-[#D4AF37]/10 px-4 py-3 text-sm text-[#f7d871] flex items-start gap-2">
-                    <Check className="w-4 h-4 mt-0.5 shrink-0" />
-                    <div>
-                      <div className="font-semibold">Inscrição recebida!</div>
-                      <div className="text-blue-100/80 text-xs mt-0.5">Protocolo: <span className="font-mono">{success.id?.slice(0, 8).toUpperCase()}</span></div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </form>
-          </Card>
-
-          {/* Payment side */}
-          <div className="space-y-5">
-            <Card className="glass border-[#D4AF37]/40 p-6 bg-transparent">
-              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-[#f7d871] mb-2">
-                <DollarSign className="w-3.5 h-3.5" />Pagamento Pix
-              </div>
-              <div className="font-display text-5xl text-white">R$ 20<span className="text-2xl">,00</span></div>
-              <div className="text-xs text-blue-200/70 mt-1">Taxa única de inscrição</div>
-
-              <div className="mt-5">
-                <div className="text-[11px] uppercase tracking-[0.2em] text-blue-200/70 mb-2">Chave Pix (CNPJ)</div>
-                <div className="flex items-center gap-2 glass-strong rounded-lg p-2.5">
-                  <code className="text-white font-mono text-sm flex-1 truncate">{PIX_KEY}</code>
-                  <Button type="button" onClick={copyPix} size="sm" className="bg-[#D4AF37]/20 hover:bg-[#D4AF37]/30 text-[#f7d871] border border-[#D4AF37]/40">
-                    {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span className="ml-1 text-xs">{copied ? 'Copiado' : 'Copiar'}</span>
-                  </Button>
-                </div>
-              </div>
-
-              <ul className="mt-5 space-y-2 text-sm text-blue-100/85">
-                <li className="flex gap-2"><Check className="w-4 h-4 text-[#f7d871] mt-0.5 shrink-0" /> Realize o Pix no valor exato.</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-[#f7d871] mt-0.5 shrink-0" /> Anexe o comprovante no formulário.</li>
-                <li className="flex gap-2"><Check className="w-4 h-4 text-[#f7d871] mt-0.5 shrink-0" /> Aguarde a confirmação por email.</li>
-              </ul>
-            </Card>
-
-            <Card id="formulario" className="glass border-blue-500/30 p-6 bg-transparent group">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B5FFF] to-[#0a3da8] flex items-center justify-center shadow-lg">
-                  <FileText className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <div className="font-heading uppercase tracking-wider text-white">Formulário Oficial</div>
-                  <div className="text-xs text-blue-200/70">Baixe, preencha e anexe acima</div>
-                </div>
-              </div>
-              <p className="text-sm text-blue-100/80 mt-4">
-                Baixe o formulário oficial de inscrição, preencha e envie junto ao comprovante de pagamento.
-              </p>
-              <a href="/api/formulario" target="_blank" rel="noopener noreferrer">
-                <Button className="mt-4 w-full bg-white text-[#061B44] hover:bg-blue-50 font-heading uppercase tracking-wider">
-                  <Download className="w-4 h-4 mr-2" /> Baixar Formulário
-                </Button>
-              </a>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ---------- Loja ---------- */
 function Loja() {
   return (
@@ -622,7 +261,13 @@ function Loja() {
         <SectionHeader kicker="Loja Oficial" title={<>Nova <span className="gold-shine animate-shine">Temporada</span> 2026</>}
           subtitle="A nova camisa do Cabense está chegando. Mais paixão, mais tradição, mais ação e garra." />
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Official banner */}
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          className="relative max-w-5xl mx-auto mb-10 rounded-2xl overflow-hidden glow-ring border border-[#D4AF37]/30">
+          <img src={BANNER_IMG} alt="Novas Camisas Temporada 2026 — Associação Desportiva Cabense" className="w-full h-auto" />
+        </motion.div>
+
+        <div id="produtos" className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {[
             { tag: 'HOME', name: 'Camisa Oficial I', accent: 'from-[#0B5FFF] to-[#0a3da8]' },
             { tag: 'AWAY', name: 'Camisa Oficial II', accent: 'from-white/20 to-white/5' },
@@ -630,8 +275,13 @@ function Loja() {
           ].map((c, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
               <Card className="glass border-blue-500/25 hover:border-[#D4AF37]/50 transition-all overflow-hidden bg-transparent group">
-                <div className={`relative aspect-[4/5] bg-gradient-to-br ${c.accent}`}>
-                  <img src={JERSEY_IMG} alt={c.name} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 1 ? 'opacity-40 grayscale' : i === 2 ? 'opacity-60 sepia' : ''}`} />
+                <div className={`relative aspect-[4/5] bg-gradient-to-br ${c.accent} overflow-hidden`}>
+                  <img src={JERSEY_IMG} alt={c.name} className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${i === 1 ? 'opacity-40 grayscale blur-md' : i === 2 ? 'opacity-60 sepia blur-md' : ''}`} />
+                  {i > 0 && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10">
+                      <Lock className="w-14 h-14 text-white/80" />
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#040d24] via-transparent to-transparent" />
                   <Badge className="absolute top-3 left-3 bg-[#D4AF37]/20 border border-[#D4AF37]/40 text-[#f7d871] font-heading tracking-wider">
                     {c.tag}
@@ -642,9 +292,18 @@ function Loja() {
                   </div>
                 </div>
                 <div className="p-4 flex items-center justify-between">
-                  <span className="text-xs text-blue-200/70 uppercase tracking-wider">Lançamento</span>
-                  <Button size="sm" variant="outline" disabled className="bg-white/5 border-white/15 text-white/70 font-heading uppercase tracking-wider text-[11px]">
-                    <ShoppingBag className="w-3.5 h-3.5 mr-1.5" /> Em breve
+                  <span className={`text-xs uppercase tracking-wider ${i === 0 ? 'text-[#D4AF37]' : 'text-blue-200/70'}`}>
+                    {i === 0 ? 'Agora Disponível' : 'Lançamento'}
+                  </span>
+                  <Button 
+                    size="sm" 
+                    disabled={i > 0}
+                    className={i === 0 
+                      ? "bg-gradient-to-r from-[#0B5FFF] to-[#3478ff] hover:from-[#0a4fd6] hover:to-[#2667e6] text-white border border-blue-300/30 font-heading uppercase tracking-wider text-[11px]" 
+                      : "bg-white/5 border-white/15 text-white/70 font-heading uppercase tracking-wider text-[11px]"
+                    }
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5 mr-1.5" /> {i === 0 ? 'Comprar' : 'Em breve'}
                   </Button>
                 </div>
               </Card>
@@ -665,7 +324,7 @@ function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <CabenseCrest className="w-14 h-16" />
+              <CabenseCrest className="w-14 h-14 shrink-0" />
               <div>
                 <div className="font-display text-2xl tracking-wide">ASSOC. DESPORTIVA CABENSE</div>
                 <div className="text-xs text-[#f7d871] tracking-[0.2em] uppercase">Tradição • Paixão • Futuro</div>
@@ -687,7 +346,7 @@ function Footer() {
             <div className="font-heading uppercase tracking-wider text-sm text-white mb-4">Contato</div>
             <ul className="space-y-3 text-sm text-blue-100/75">
               <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#f7d871]" /> contato@cabense.com.br</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#f7d871]" /> (81) 9 0000-0000</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#f7d871]" /> (81) 98513-3528</li>
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 text-[#f7d871] mt-0.5" /> Estádio Gileno de Carli<br/>Cabo de Santo Agostinho — PE</li>
             </ul>
           </div>
@@ -718,10 +377,6 @@ export default function App() {
       <Navbar />
       <Hero />
       <About />
-      <Seletiva />
-      <PreSelecionados />
-      <OQueLevar />
-      <Inscricao />
       <Loja />
       <Footer />
     </main>
