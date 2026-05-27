@@ -10,8 +10,6 @@ import {
   ChevronRight, Star, Flame, Lock
 } from 'lucide-react'
 
-import { Label } from './components/ui/label'
-import { Input } from './components/ui/input'
 import { Card } from './components/ui/card'
 import { Badge } from './components/ui/badge'
 import { Button } from './components/ui/button'
@@ -27,8 +25,6 @@ const NAV_LINKS = [
   { href: '#sobre', label: 'O Clube' },
   { href: '#loja', label: 'Loja' },
 ]
-
-const PIX_KEY = '01.615.265/0001-67'
 
 /* ---------- Navbar ---------- */
 function Navbar() {
